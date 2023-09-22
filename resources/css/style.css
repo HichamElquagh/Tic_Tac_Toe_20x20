@@ -1,0 +1,107 @@
+:root {
+    --cell-size: 30px; 
+    --border-color: rgb(150, 148, 148);
+    --cell-background:  rgb(32, 32, 32);;
+    --cell-hover-background: #ddd;
+  }
+  
+  body {
+    /* background-image: url("https://janschreiber.github.io/img2/black-chalk.jpg"); */
+    background-image: url(/resources/img/brick-wall-with-grunge-style-effect.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+  
+  h2 {
+    text-align: center;
+    color: #ddd;
+
+  
+  }
+
+  .container{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    /* flex-wrap: wrap; */
+  }
+
+  .players{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    /* margin-right: 4rem; */
+
+  }
+  .result-card{
+        margin-bottom: 2rem;
+    
+  }
+
+  #players_icon{
+
+    font-size: 5rem;
+    color: #ddd;
+  }
+  .player__symbol{
+    margin-top: 0.5rem;
+    font-size: 2rem;
+    color: #ddd;
+
+  }
+  .player_profile{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+  }
+ 
+  
+  #board {
+    width: 60%;
+    display: grid;
+    grid-template-columns: repeat(20, var(--cell-size));
+    grid-template-rows: repeat(20, var(--cell-size)); 
+    gap: 1px; 
+    margin-top: 2rem;
+    justify-content: center;
+    /* align-items: center; */
+
+  }
+  
+  .square {
+    width: var(--cell-size);
+    height: var(--cell-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid var(--border-color);
+    background-color: var(--cell-background);
+    font-size: 20px; 
+    cursor: pointer;
+  }
+  
+  .square:hover {
+    background-color: var(--cell-hover-background);
+  }
+
+  .result-card {
+    background-color: #fff; /* Change this to the background color you prefer */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.result-card h2 {
+    color: #333; /* Change this to the text color you prefer */
+}
+
+.result-card p {
+    color: #555; /* Change this to the text color you prefer */
+}
+  
+  /* Add more styles for X and O symbols if needed */
+  
