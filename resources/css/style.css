@@ -2,7 +2,7 @@
     --cell-size: 30px; 
     --border-color: rgb(150, 148, 148);
     --cell-background:  rgb(32, 32, 32);;
-    --cell-hover-background: #ddd;
+    --cell-hover-background: #646161;
   }
   
   body {
@@ -13,7 +13,7 @@
     background-size: cover;
 }
   
-  h2 {
+  h2, h1 {
     text-align: center;
     color: #ddd;
 
@@ -37,7 +37,8 @@
 
   }
   .result-card{
-        margin-bottom: 2rem;
+    margin-bottom: 2rem;
+    width: 52%;
     
   }
 
@@ -48,12 +49,14 @@
   }
   .player__symbol{
     margin-top: 0.5rem;
+    margin-right: 0.8rem;
     font-size: 2rem;
     color: #ddd;
+    text-align: center;
 
   }
   .player_profile{
-    width: 50%;
+    width: 60%;
     display: flex;
     justify-content: space-between;
   }
@@ -72,6 +75,7 @@
   }
   
   .square {
+    border-radius: 0.3rem;
     width: var(--cell-size);
     height: var(--cell-size);
     display: flex;
@@ -81,6 +85,8 @@
     background-color: var(--cell-background);
     font-size: 20px; 
     cursor: pointer;
+    color: #ddd;
+
   }
   
   .square:hover {
@@ -88,7 +94,7 @@
   }
 
   .result-card {
-    background-color: #fff; /* Change this to the background color you prefer */
+   background-color:  rgb(171, 170, 170); /* Change this to the background color you prefer */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -104,4 +110,24 @@
 }
   
   /* Add more styles for X and O symbols if needed */
+  .startButton {
+    background-color: #95928f; /* Couleur de fond */
+    border: none; /* Pas de bordure */
+    color: rgb(0, 0, 0); /* Couleur du texte */
+    padding: 15px 32px; /* Espacement du texte à l'intérieur du bouton */
+    text-align: center; /* Alignement du texte au centre */
+    text-decoration: none; /* Pas de soulignement */
+    display: inline-block; /* Le bouton occupe l'espace minimum requis */
+    font-size: 16px; /* Taille de la police */
+    border-radius: 8px; /* Coins arrondis */
+    cursor: pointer; /* Curseur de la main au survol */
+  }
   
+  /* Style au survol */
+  .startButton:hover {
+    background-color: var(--cell-hover-background);
+  }
+  .disabled_square {
+    pointer-events: none; /* Disable pointer events */
+    opacity: 0.5; /* Optionally, make it semi-transparent to indicate it's disabled */
+  }
