@@ -7,21 +7,20 @@ const targetSquare = document.querySelector(".disabled_square");
 const tagWin = document.querySelector(".tagWin");
 const playerWin = document.querySelector(".playerWin");
 const winPlayerX = document.getElementById("player__symbol_X");
-const winPlayer0 = document.getElementById("player__symbol_O");
+const winPlayerO = document.getElementById("player__symbol_O");
 var scoreX = 0;
 var scoreO = 0;
 
-// Function to enable the div
+// this is for enable the game after cklick in start 
 function enableSquare() {
-  targetSquare.style.pointerEvents = "auto"; // Enable pointer events
-  targetSquare.style.opacity = "1"; // Restore full opacity
+  targetSquare.style.pointerEvents = "auto"; 
+  targetSquare.style.opacity = "1"; 
 }
 
-// Add a click event listener to the button
 startButton.addEventListener("click", function () {
   enableSquare();
 });
-
+  //  la creation du array de deux dimenstion 
 const createBoard = (n) => {
   return [...Array(n)].map(() => Array(n).fill(null));
 };
@@ -118,7 +117,7 @@ function checkVertical(row, column, currentPlayer, board) {
 
 function checkaathordimention1(row, column, currentPlayer, board) {
   let counter = 0;
-  // Check diagonal from bottom-left to top-right
+
   for (let i = row, j = column; i >= 0 && j < board[i].length; i--, j--) {
     if (board[i][j] === currentPlayer) {
       counter++;
@@ -128,7 +127,6 @@ function checkaathordimention1(row, column, currentPlayer, board) {
     }
   }
 
-  // Check diagonal from top-left to bottom-right
   for (
     let i = row, j = column;
     i < board.length && j < board[i].length;
@@ -136,7 +134,6 @@ function checkaathordimention1(row, column, currentPlayer, board) {
   ) {
     if (board[i + 1][j + 1] === currentPlayer) {
       counter++;
-      // console.log(counter);
     } else {
       break;
     }
@@ -190,10 +187,18 @@ function WinningPlayer(currentPlayer) {
 
   if (currentPlayer === "X") {
     scoreX++;
-    winPlayerX.textContent = scoreX;
+    localStorage.setItem(currentPlayer,JSON.stringify(scoreX));
+    let X = localStorage.getItem(currentPlayer);
+    // console.log(X);
+    winPlayerX.textContent = X
   } else if (currentPlayer === "O") {
     scoreO++;
-    winPlayer0.textContent = scoreO;
+    localStorage.setItem(currentPlayer, JSON.stringify(scoreO));
+    let O = localStorage.getItem(currentPlayer);
+    // console.log(O);
+
+    winPlayerO.textContent = O
+;
   }
   clearBoard();
 }
@@ -209,3 +214,10 @@ function clearBoard() {
     }
   }
 }
+// localStorage.clear();
+window.addEventListener('load',function(){
+  let O = localStorage.getItem("X");
+  let X = localStorage.getItem("O");
+  winPlayerO.textContent = O;
+  winPlayerX.textContent = X;
+}) 
